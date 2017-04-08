@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataModel.Unit_of_Work
 {
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IDisposable, IUnitOfWork
     {
         #region Private member variables...
 

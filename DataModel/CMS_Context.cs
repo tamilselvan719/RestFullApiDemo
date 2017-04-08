@@ -17,12 +17,11 @@ namespace DataModel
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            // throw new UnintentionalCodeFirstException();
         }
     
         public DbSet<Product> Products { get; set; }
         public DbSet<Token> Tokens { get; set; }
         public DbSet<User> Users { get; set; }
-    }
-    }
+    }    
 }

@@ -6,7 +6,12 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Net.Http;
 using System.Web.Http;
+using Newtonsoft.Json;
+using CMS_Project_2._0.App_Start;
+using System.Web.Optimization;
+using AttributeRouting.Web.Http;
 
 namespace CMS_Project_2._0
 {
@@ -17,7 +22,8 @@ namespace CMS_Project_2._0
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            Bootstrapper.Initialise();
         }
     }
 }

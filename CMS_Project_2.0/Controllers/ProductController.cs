@@ -9,6 +9,7 @@ using BusinessEntities;
 
 namespace CMS_Project_2._0.Controllers
 {
+    [RoutePrefix("api/product")]
     public class ProductController : ApiController
     {
         private readonly IProductServices _productServices;
@@ -16,12 +17,14 @@ namespace CMS_Project_2._0.Controllers
         /// <summary>
         /// Public constructor to initialize product service instance
         /// </summary>
-        public ProductController()
+        public ProductController(IProductServices productServices)
         {
-            _productServices = new ProductServices();
+            _productServices = productServices;
         }
 
         // GET api/product
+        [HttpGet]
+        [Route("list")]
         public HttpResponseMessage Get()
         {
             var products = _productServices.GetAllProducts();
@@ -50,6 +53,8 @@ namespace CMS_Project_2._0.Controllers
         }
 
         // PUT api/product/5
+   
+         
         public bool Put(int id, [FromBody]ProductEntity productEntity)
         {
             if (id > 0)
@@ -60,6 +65,7 @@ namespace CMS_Project_2._0.Controllers
         }
 
         // DELETE api/product/5
+        [HttpDelete]        
         public bool Delete(int id)
         {
             if (id > 0)
@@ -68,3 +74,4 @@ namespace CMS_Project_2._0.Controllers
         }
     }
 }
+
